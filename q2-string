@@ -1,0 +1,26 @@
+//reverse a string
+class Reverse
+{
+    // Complete the function
+    // str: input string
+    public static String reverseWord(String str)
+ {  
+    //i made
+    
+    /*int size=str.length()-1;
+        for(int i=0;i<=size+1;i++)
+        {    
+            char temp=str.charAt(i);
+            str.charAt(i)=str.charAt(size-i);
+            str.charAt(size-i)=temp;
+        }
+        return str;*/
+        
+      //original
+      
+        String rev = "";
+        for(int i = str.length()-1; i >= 0; i--)
+            rev += str.charAt(i);
+         return rev;
+    }
+}
