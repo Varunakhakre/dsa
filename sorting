@@ -1,0 +1,147 @@
+public class sorting {
+
+     public static void main(String[] args) {
+     int arr[] = {3, 6, 2, 1, 8, 7, 4, 5, 3, 1};
+       // assbubbleSort(arr);
+        //desBubbleSort(arr);
+       // assSelectionSort(arr);
+       //desSelectionSort(arr);
+        //assInsertionSort(arr);
+        //desInsertionSort(arr);
+        assCountingSort(arr);
+        desCountingSort(arr);
+        
+        printArr(arr);
+    }
+/* use the following sorting algorithms to sort the array in assending & descending order :-
+ * 1. Bubble Sort
+ * 2. Selection Sort
+ * 3. Insertion Sort
+ * 4. Counting Sort
+ * arr[] = [3, 6, 2, 1, 8, 7, 4, 5, 3, 1];
+//1.1*/
+    public static void assBubbleSort(int arr[]) {
+        for(int turn=0;turn<arr.length-1;turn++){
+            for(int j=0;j<arr.length-1;j++){
+                if(arr[j]>arr[j+1]){
+                    int temp=arr[j];
+                    arr[j]=arr[j+1];
+                    arr[j+1]=temp;
+                }
+            }
+        } 
+    }
+//1.2
+public static void desBubbleSort(int arr[]) {
+    for(int turn=0;turn<arr.length-1;turn++){
+        for(int j=0;j<arr.length-1;j++){
+            if(arr[j]<arr[j+1]){
+                int temp=arr[j];
+                arr[j]=arr[j+1];
+                arr[j+1]=temp;
+            }
+        }
+    } 
+}
+//2.1
+public static void assSelectionSort(int arr[]) {
+    
+    for(int i=0;i<arr.length-1;i++){
+        int minPos=i;
+    
+        for(int j=i+1;j<arr.length;j++){
+            if(arr[minPos]>arr[j]){
+                minPos=j;
+            }
+        }
+                int temp=arr[minPos];
+                arr[minPos]=arr[i];
+                arr[i]=temp;
+    }
+} 
+//2.2
+public static void desSelectionSort(int arr[]) {
+    
+    for(int i=0;i<arr.length-1;i++){
+        int maxPos=i;
+    
+        for(int j=i+1;j<arr.length;j++){
+            if(arr[maxPos]<arr[j]){
+                maxPos=j;
+            }
+        }
+                int temp=arr[maxPos];
+                arr[maxPos]=arr[i];
+                arr[i]=temp;
+    }
+}
+//3.1 
+public static void assInsertionSort(int arr[]) {
+    
+    for(int i=1;i<arr.length-1;i++){
+        int current=arr[i];
+        int previous=i-1;
+    while(previous>=0 && arr[previous]>current){
+        arr[previous+1]=arr[previous];
+        previous--;
+    }
+    arr[previous+1]=current;
+    }
+} 
+//3.2
+public static void desInsertionSort(int arr[]) {
+    
+    for(int i=1;i<arr.length-1;i++){
+        int current=arr[i];
+        int previous=i-1;
+    while(previous>=0 && arr[previous]<current){
+        arr[previous+1]=arr[previous];
+        previous--;
+    }
+    arr[previous+1]=current;
+    }
+} 
+//4.1
+public static void assCountingSort(int arr[]) {
+    int largest=Integer.MIN_VALUE;
+    for(int i=0;i<arr.length;i++){
+       largest=Math.max(largest,arr[i]);
+    }
+    int count[] = new int[largest+1];
+    for(int i=0;i<arr.length;i++){
+        count[arr[i]]++;
+    }
+        int j=0;
+        for(int i=0;i<count.length;i++){
+            while(count[i]<0){
+                arr[j]=i;
+                j++;
+                count[j]--;
+            }
+        }  
+} 
+//4.2
+public static void desCountingSort(int arr[]) {
+    int largest=Integer.MIN_VALUE;
+    for(int i=0;i<arr.length;i++){
+       largest=Math.max(largest,arr[i]);
+    }
+    int count[] = new int[largest+1];
+    for(int i=0;i<arr.length;i++){
+        count[arr[i]]++;
+    }
+        int j=0;
+        for(int i=count.length-1;i>=0;i--){
+            while(count[i]>0){
+                arr[j]=i;
+                j++;
+                count[i]--;
+            }
+        }  
+} 
+    public static void printArr(int arr[]) {
+       for(int i=0;i<arr.length;i++){
+        System.out.print(arr[i]+" ");}
+    }
+}
+
