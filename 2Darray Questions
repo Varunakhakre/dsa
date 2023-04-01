@@ -1,0 +1,78 @@
+import java.util.*;
+public class twoDArray{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        //int arr[][] =new int[3][3];
+       //for(int i=0;i<arr.length;i++){
+        //    for(int j=0;j<arr[0].length;j++){
+        //        arr[i][j] = sc.nextInt();
+        //    }
+        //}
+        int arr[][]={{1,4,9},{11,4,3}};
+        transpose(arr);
+        rowSum(arr);
+        printArr(arr);
+        maxMinElement(arr);
+        count(arr, 7);
+    }
+
+    public static void printArr(int arr[][]) {
+        
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr[0].length;j++){
+                System.out.print(arr[i][j] + " ");
+            }
+            System.out.println();
+        }
+        
+    }
+//1 finding max & min element in a 2d array.
+
+    public static void maxMinElement(int arr[][]) {
+        int maxElement = Integer.MIN_VALUE;
+        int minElement = Integer.MAX_VALUE;
+        for(int i=0;i<arr.length;i++){
+            for(int j=0;j<arr[0].length;j++){
+                if(arr[i][j]>maxElement){
+                    maxElement=arr[i][j];
+                }
+                if(arr[i][j]<minElement){
+                    minElement=arr[i][j];
+                }
+        }
+    }
+        
+    System.out.println( "maximum element "+maxElement); 
+    System.out.println("minimum element "+minElement); 
+}
+//2 print the no. of 7's that are in the 2d array
+int arr[][] = {{4,7,8},{8,8,7}}
+    public static void count(int arr[][],int num) {
+        int count=0;
+        for(int i =0;i<arr.length;i++){
+            for(int j =0;j<arr[0].length;j++){
+                if(arr[i][j] == num){
+                    count++;
+                }
+            }
+        }
+        System.out.println(count);
+    }
+//3 print out the sum of the numbers on the second row of the array
+    public static void rowSum(int arr[][]) {
+        int row=1, sum=0;
+        for(int i=0;i<arr[0].length;i++){
+            sum +=arr[row][i];
+        }
+        System.out.println(sum);
+    }
+//4 WAP to find transpose of a matrix
+    public static void transpose(int arr[][]) {
+        for(int i=0;i<arr[0].length;i++){
+            for(int j=0;j<arr.length;j++){
+                System.out.print(arr[j][i] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
